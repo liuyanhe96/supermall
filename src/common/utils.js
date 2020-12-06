@@ -12,7 +12,7 @@ deboundce(func,delay){
   }
 }
 
-
+//时间格式化！！！！！ 重要
 //时间戳转换成日期格式 yyyy-MM-DD 正则表达式
 export function formatDate(date, fmt) {
   // 获取年份  * 表示可有可无，多了不限  + 表示至少一个，一个或者多个，多了不限。  y+:匹配一个或多个y 。y*:表示0个或者多个。y?:表示0个或者1个

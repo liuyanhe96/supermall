@@ -12,7 +12,7 @@
       goods:{
       type:Array,
       default(){
-        return{}  //[] {} 是根据type来定的！！！！！！！
+        return[]  //[] {} 是根据type来定的！！！！！！！
          }
     }
     },

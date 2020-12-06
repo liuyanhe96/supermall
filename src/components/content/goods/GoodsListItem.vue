@@ -1,6 +1,6 @@
 <template>
 <div class="goods-item" @click="itemClick">
-  <img :src="goodsItem.show.img" alt="" @load="imageLoad">
+  <img :src="showImage" alt="" @load="imageLoad">
   <div class="goods-info">
     <p>{{goodsItem.title}}</p>
     <span class="price">{{goodsItem.price}}</span>
@@ -20,11 +20,22 @@
         }
       }
     },
+    computed:{
+      showImage(){
+        // console.log(this.goodsItem.image);
+        return this.goodsItem.image || this.goodsItem.show.img
+      }
+    },
     methods:{
       imageLoad(){
-        //事件总线 $bus
-        // 在main.js中通过原型 将$bus定义为vue实例 才可以发射监听事件
-        this.$bus.$emit('itemImageLoad')
+        //在home页面发送事件
+        if(this.$route.path.indexOf('/home')){
+          //事件总线 $bus
+          // 在main.js中通过原型 将$bus定义为vue实例 才可以发射监听事件
+          this.$bus.$emit('itemImageLoad')
+        }else if(this.$route.path.indexOf('/detail')){
+          this.$bus.$emit('detailItemImageLoad')
+        }
       },
       itemClick(){
         this.$router.push('/detail/'+this.goodsItem.iid)

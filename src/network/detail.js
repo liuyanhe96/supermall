@@ -10,16 +10,24 @@ export function getDetail(iid) {
 
 }
 
+export function getRecommend() {
+  return request({
+    url:'/recommend'
+  })
+
+}
+
+
 //面向对象封装思想 把从服务器返回的数据封装到一个类里 创建类对应的对象 然后用对象传到下一层组件里面展示
 export class Goods {
   constructor(itemInfo, columns, services) {
-    this.title = itemInfo.title
-    this.desc = itemInfo.desc
-    this.newPrice = itemInfo.price
-    this.oldPrice = itemInfo.oldPrice
-    this.discount = itemInfo.discountDesc
-    this.columns = columns
-    this.services = services
+    this.title = itemInfo.title;
+    this.desc = itemInfo.desc;
+    this.newPrice = itemInfo.price;
+    this.oldPrice = itemInfo.oldPrice;
+    this.discount = itemInfo.discountDesc;
+    this.columns = columns;
+    this.services = services;
     this.realPrice = itemInfo.lowNowPrice
   }
 }
